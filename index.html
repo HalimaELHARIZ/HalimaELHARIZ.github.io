@@ -1,53 +1,671 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='chrome=1'>
-    <title>Wheel by inlinestyle</title>
-    <link rel='stylesheet' href='stylesheets/styles.css'>
-    <link rel='stylesheet' href='stylesheets/github-light.css'>
-    <meta name='viewport' content='width=device-width'>
-  </head>
-  <body>
-    <div class='wrapper'>
-      <header>
-        <h1>Wheel</h1>
-        <p>Spinning wheel of names</p>
+<!DOCTYPE html>
+<html lang="en">
+ {% load static %}
 
-        <p class='view'>
-          <a href='https://github.com/inlinestyle/wheel'>View the Project on GitHub <small>inlinestyle/wheel</small></a>
-        </p>
-        <ul>
-          <li><a href='https://github.com/inlinestyle/wheel/zipball/master'>Download <strong>ZIP File</strong></a></li>
-          <li><a href='https://github.com/inlinestyle/wheel/tarball/master'>Download <strong>TAR Ball</strong></a></li>
-          <li><a href='https://github.com/inlinestyle/wheel'>View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <div id='wheel' >
-          <canvas id='canvas' width='1000' height='600'></canvas>
+    <head>
+        
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>PERF TRACK </title>
+        <link href="{%static 'css/styles.css'%}" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+        <!--
+        <link type="text/css" href="{%static 'css/smoothness/jquery-ui-1.10.3.custom.css'%}" rel="stylesheet" /> 
+        -->
+        <!--
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>  
+        -->
+        <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <link rel="icon" href="#"/>
+
+    </head>
+    <body> 
+        <script>
+
+            var isIE = /*@cc_on!@*/false || !!document.documentMode;
+            //isIE=True
+        
+            //console.log(isIE)
+            if (isIE==true){ window.location.href="blockIE";} 
+            </script>    
+        <style>
+            .inner_main_menu{ margin: 0 auto; width: 1170px;}
+            .inner_main_menu ul{ margin: 0 ; padding: 0; list-style: none; text-align: right; }
+            .inner_main_menu ul li{ float: none; display: inline-block;}
+            .inner_main_menu ul li:nth-child(1){ float:left;}
+            .inner_main_menu ul li:nth-child(2){ float: left;}
+            .inner_main_menu ul li:nth-child(3){ float: left;}
+            .inner_main_menu ul li a{ color:#262626; font-size:20px; text-transform: uppercase; text-decoration: none;
+            display: block;padding: 10px 20px;}
+            .inner_main_menu ul li a:hover{ color:#6FD144}
+            #main_menu{width: 100%; position:relative; background: #343a40; padding-left: 300px;}
+            .logo_area{position: absolute; left: 1%; top: 10%; content: "";margin-left: 0px;}
+            h4 { color: rgb(255, 255, 255); }
+         
+                .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+                }
+                .container {
+                padding: 2px 16px;
+                
+                }
+                
+            .titre{
+                height: 8px;
+                padding-top: 10px;
+                font-style: oblique;
+                font-stretch: extra-expanded;
+                font-weight: normal;
+                font-family: Georgia, serif;
+                font-size: 35px;
+                margin-left: 440px;
+                margin-top: 0px;padding-left: 70px;
+                }
+            .date_index{
+                height: 16px;
+                width: 100px;
+                padding-top: 0px;
+                font-stretch: extra-expanded;
+                margin-left: 1325px;
+                font-size: 30px;
+                font-variant: small-caps;
+                font-weight: normal;
+            }
+            .date_index_2{
+                height: 56px;
+                width: 100px;
+                padding-right: 0px;
+                padding-top: 5px;
+                
+                margin-left: 1335px;
+                font-weight: normal;
+                font-size: 30px;
+                font-variant: small-caps;
+                font-weight: normal;
+                padding-right: 0px;
+                left: 400px;
+                top: 10px;}
+                .barre{
+                    height: 80px;
+                    width: 1890px;
+                }
+
+                @media only screen and (max-width: 1700px)  and (min-width: 1500px){
+                    .barre{
+                    height: 80px;
+                    width: 1890px;
+                }
+                .date_index{
+                height: 16px;
+                width: 100px;
+                padding-top: 0px;
+                font-stretch: extra-expanded;
+                margin-left: 1160px;
+                font-size: 30px;
+                font-variant: small-caps;
+                font-weight: normal;
+            }
+            .date_index_2{
+                height: 56px;
+                width: 100px;
+                padding-right: 0px;
+                padding-top: 5px;
+                
+                margin-left: 1170px;
+                font-weight: normal;
+                font-size: 30px;
+                font-variant: small-caps;
+                font-weight: normal;
+                padding-right: 0px;
+                left: 400px;
+                top: 10px;}
+            .titre{
+                height: 8px;
+                padding-top: 10px;
+                font-style: oblique;
+                font-stretch: extra-expanded;
+                font-weight: normal;
+                font-family: Georgia, serif;
+                font-size: 35px;
+                padding-left: 0px;
+                
+                margin-top: 0px;
+                }
+            }
+            @media only screen and (max-width: 1500px) {
+                .barre{
+                    height: 80px;
+                    width: 1890px;
+                }
+                
+                .titre{
+                        height: 8px;
+                        padding-top: 10px;
+                        font-style: oblique;
+                        font-stretch: extra-expanded;
+                        font-weight: normal;
+                        font-family: Georgia, serif;
+                        font-size: 35px;
+                        margin-left: 200px;
+                        margin-top: 0px;
+                }
+                .date_index{
+                height: 16px;
+                width: 100px;
+                padding-top: 0px;
+                font-stretch: extra-expanded;
+                margin-left: 1030px;
+                font-size: 30px;
+                font-variant: small-caps;
+                font-weight: normal;
+            }
+            .date_index_2{
+                height: 56px;
+                width: 100px;
+                padding-right: 0px;
+                padding-top: 5px;
+                margin-left: 1060px;
+                font-weight: normal;
+                font-size: 30px;
+                font-variant: small-caps;
+                font-weight: normal;
+                padding-right: 0px;
+                left: 400px;
+                top: 10px;}
+                
+  }
+        </style>  
+        <div id="main_menu" classe="barre" style="height: 80px;">
+            <div class=" row">
+                <div class="logo_area">
+                    <a><img src= "{%static 'img/Image1.png'%}" style="height: 63px;width: 200px;padding-left: 5px;margin-top: 5px;margin-bottom: 20;"></a>
+    
+                </div>
+                
+                <ul style="margin-top: 10px;margin-bottom: 0px;">
+                        <h4  class="titre"> PERF TRACK</h4>
+                </ul>
+                <div class="container">
+                <div class="row" style="height: 56px;width:1000px;"> 
+                    <div class=" col-sm" >
+                        <h4 class="date_index" id="jour"></h4> 
+                </div>
+                <div class=" col-sm" >
+                        <h4 class="date_index_2" id="heure"></h4>
+                </div>
+                
+                </div>
+            </div>
+            </div>
+            </div>
+                
+            <script>
+            var myVar = setInterval(myTimer, 1000);
+            
+            function myTimer() {
+                var d = new Date();
+                var jour = d.toLocaleDateString();
+                var heure =d.toLocaleTimeString();
+                document.getElementById("jour").innerHTML = jour;
+                document.getElementById("heure").innerHTML = heure;
+            }
+            </script>
+
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu" style="height: 580px;">
+                        <div class="nav" style="padding-top: 30px;">
+                            <a class="nav-link"style="padding-top: 20px; padding-bottom: 20px;" >
+                                <div  class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <p style="visibility: visible; margin-bottom: 0px;" >Accueil</p></a>
+                            <a class="nav-link"  href="{%url 'calcul_performance'%}" style="padding-top: 20px; padding-bottom: 20px;" >
+                                <div  class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <p style="visibility: visible; margin-bottom: 0px;" id="Clignotante_perf">Calcul de performance</p></a>
+                                <input type="hidden" class="hidden" id="Gamme_en_cours" value="{{ Gamme_en_cours }}" />
+
+                                <input type="hidden" class="hidden" id="Debut_Arret_maint" value="{{ Debut_Arret_maint }}" /> 
+                                <!--
+                                <input type="hidden" class="hidden" id="Debut_Arret_conv" value="{{ Debut_Arret_conv }}" />
+-->
+                                <h2 style="display: none" id="etat_prod">{{etat_prod}}</h2>
+                                <h2 style="display: none" id="etat_conv">{{etat_conv}}</h2>
+                                <h2 style="display: none" id="Debut_Arret_maint" name ="Debut_Arret_maint">{{Debut_Arret_maint}}</h2>
+                                <h2 style="display: none" id="Debut_Arret_conv">{{Debut_Arret_conv}}</h2>
+                            <a class="nav-link" href="{%url 'Saisi_perte'%}" style="padding-top: 20px; padding-bottom: 20px;" 
+                                ><div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                <p style="visibility: visible; margin-bottom: 0px;" id="Clignotante_perte">Saisie de perte</p></a>
+                                <input type="hidden" class="hidden" id="cause_en_cours" value="{{ cause_en_cours }}" />
+                                <input type="hidden" class="hidden" id="RO_journa" value="{{ RO_journa }}" />
+                                <a class="nav-link" href="{%url 'Synthèse_aujourdhui'%}" style="padding-top: 20px; padding-bottom: 20px;"><div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div> Synthèse de production </a>                                
+                                <a class="nav-link" href="{%url 'paramètre'%}" style="padding-top: 20px; padding-bottom: 20px;" 
+                                ><div class="sb-nav-link-icon"><i class="fa fa-cog"></i></div>
+                                Paramètres</a>
+
+                                <div id="auto_load_number" class="card" style="top: 80px;background-color:rgb(52 58 64)">
+                                    <a style="margin-left: 10px;margin-top: 10px; color:azure; font-weight: 500;"> Etat de la ligne :</a>
+                                    <li style="list-style: inside;margin-left: 20px;" id="marche"> Marche</lo>
+                                    <li style="list-style: inside;margin-left: 20px;"id="Changement_de_gamme"> Changement de gamme</li>
+                                    <li style="list-style: inside;margin-left: 20px;margin-bottom: 10px" id="Arrêt_de_maintenance"> Arrêt de maintenance</li>
+                                    
+                            </div>
+                    </div>
+                    <script>
+                        var gamme = document.querySelector("#Gamme_en_cours").value;
+                        
+                        var RO_journa = document.querySelector("#RO_journa").value;
+                        if (gamme=="Gamme à saisir" || gamme=="En cours"){
+                            var clignotement = function(){ 
+                            if (document.getElementById('Clignotante_perf').style.visibility=='visible'){ 
+                                document.getElementById('Clignotante_perf').style.visibility='hidden'; 
+                            } 
+                            else{ 
+                            document.getElementById('Clignotante_perf').style.visibility='visible'; 
+                            document.getElementById('Clignotante_perf').style.color='rgba(82, 203, 190)'; 
+                            document.getElementById('Clignotante_perf').style.fontWeight ='500'; 
+                            } 
+                            }; 
+                            periode = setInterval(clignotement, 800); 
+                        }
+                        var cause = document.querySelector("#cause_en_cours").value;
+                        
+                        if (cause=="Cause à saisir"){
+                            var clignotement = function(){ 
+                            if (document.getElementById('Clignotante_perte').style.visibility=='visible'){ 
+                                document.getElementById('Clignotante_perte').style.visibility='hidden'; 
+                            } 
+                            else{ 
+                            document.getElementById('Clignotante_perte').style.visibility='visible'; 
+                            document.getElementById('Clignotante_perte').style.color='rgba(255, 89, 105)'; 
+                            document.getElementById('Clignotante_perte').style.fontWeight ='500'; 
+                            } 
+                            }; 
+                            periode = setInterval(clignotement, 800); 
+                        }  
+                    </script>
+                </nav>
+            </div>
+            
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid"> 
+                        <div class="row">
+                            <div class="col-sm" style="position:static ">
+                                <div id="auto_load_number" class="card" style="top: 20px; height: 152px;">
+                                    <div class="card-header" style="background-color:rgba(82, 203, 190);font-weight: 500;"><i class="fas fa-chart-area mr-1"></i>Compteur de frappes</div>
+                                    {% block content%}
+                                    <form action ="increment_frappe" method ="POST">   
+                                    <div id="nombre">
+                                    <h2 style="margin-left: 140px;margin-top: 15px;font-size: 50px;">  {{num}}</h2>
+                                    </div>  
+                                    {% csrf_token %}  
+                                    </form>
+                                    {% endblock%}
+                                </div>
+                                </div>
+                            <div class="col-sm" style="position:static ">
+                                <div id="arret_de_production" class="card " style="top: 20px; height: 152px;">
+                                <div class="card-header" style="background-color:rgba(255, 89, 105); font-weight: 500"><i class="fas fa-chart-bar mr-1"></i>Temps d'arrêt de production</div>
+                                    <div class="col" >
+                                        <form method="POST" id="post-form11">
+                                            {% csrf_token %}
+                                        <div class="form-group " id="test" style="margin-left: 60px;margin-top: 20px;">
+                                            <h2 style="color: black;font-size: 50px" id="arret_production"> </h2>
+                                            <h2 style="color: black;font-size: 50px" id="RAZ"></h2>
+                                            <h2 style="color: black;font-size: 50px" id="doublons_RAZ"></h2>
+                                        </div>
+                                    <div class ="row">
+                                </div>
+                            </form>   
+                                       
+                                </div> 
+                                </div>
+                            </div>
+                            <div class="col-sm" style="position:static ">
+                        <div id="arret_de_convoyeur" class="card" style="top: 20px; height: 152px;">
+                                <div class="card-header"  style="  background-color:rgba(245, 198, 48);font-weight: 500;"><i class="fas fa-chart-bar mr-1"></i>Temps de changement de gamme </div>
+                                <div class="col">
+                                    <form method="POST" id="post-form">
+                                        {% csrf_token %}
+                                    <div class="form-group " style="margin-left: 60px;">
+                                        <h2 style="color: black;font-size: 50px; margin-top: 20px;" id="arret_convoyeur"></h2>
+                                    </div>
+                            </form>
+
+                            </div>
+                        </div>
+                        </div> 
+                        <div class="w-100"></div>
+                            <div class="col" style="top: 40px;">
+                                <!--
+                                    style="height: 362px;"
+                                -->
+                                <div class="card " >
+                                    <div class="card-header" style="background-color:rgba(146, 208, 80);font-weight: 500;"><i class="fas fa-chart-area mr-1"></i> Synthèse de production</div>
+                                    <div class="row">
+                                    <div class="col-sm" style="position:static;padding-left: 20px;padding-top: 20px;"> 
+                                    <div class="card " style=" position:static;margin-left:10;height: 130px;">
+                                        <div class="card-header" style ="font-weight: 500;text-align: center;"> Gamme en cours </div>
+                                        <h2 style="font-size: 25px;margin-top: 23px;text-align: center;" id ="Gamme_en_cours_2">{{Gamme_en_cours}}</h2> <!-- GAMME A SAISIR-->
+                                    </div>
+                                    </div>
+                                    <div class="col-sm" style="position:static;padding-top: 20px;" >
+                                    <div class="card " style="position:static;">
+                                        <div class="card-header"style ="font-weight: 500;"> T. d'arrêt de production cumulé </div>
+                                        <h2 style="font-size: 40px;margin-top: 15px;text-align: center;" id="Somme_arret_production">  {{Somme_arret_production}}</h2>
+                                    </div>
+                                   
+                                    </div>
+                                    <div class="col-sm" style="position:static;padding-top: 20px;padding-right: 20px;">
+                                    <div class="card" style="position:static;">
+                                        <div class="card-header" style ="font-weight: 500;">T. de changement de gamme cumulé</div>
+                                        <h2 style="font-size: 40px;text-align: center;" id="Somme_changement_gamme">  {{Somme_changement_gamme}}</h2>
+                                        
+                                    </div>
+                                </div>
+                                
+                                <div class="w-100"></div> 
+                                <div class="col-sm" style="position:static;padding-top: 20px;padding-left: 20px;padding-bottom: 20px;">
+                                    <div class="card" style="position:static;height:130px; ">
+                                        <div class="card-header"style ="font-weight: 500;text-align: center;" > RO (Journalier) %</div>
+                                        <h2 style="font-size: 40px;margin-top: 15px;text-align: center;"id="RO_journa"> {{RO_journa}} </h2> <!-- GAMME A SAISIR-->
+                                        
+                                    </div>
+                                    </div>
+                                <div class="col-sm" style="position:static;padding-top: 20px; padding-bottom: 20px;">
+                                    <div class="card" style="position:static;height:130px;">
+                                        <div class="card-header"style ="font-weight: 500;text-align: center;" > RO (Gamme en cours) %</div>
+                                        <h2 style="font-size: 40px;margin-top: 5px;text-align: center;"id="RO"> {{RO}} </h2> <!-- GAMME A SAISIR-->
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="col-sm" style="position:static;padding-top: 20px;padding-right: 20px;padding-bottom: 20px;">
+                                    <div class="card" style="position:static;height:130px; ">
+                                        <div class="card-header"style ="font-weight: 500; text-align: center;"> CHR (Gamme en cours)    frappe/h</div>
+                                        <h2 style="font-size: 40px;margin-top: 5px;text-align: center;" id="CHR">  {{CHR}} </h2> <!-- GAMME A SAISIR-->
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <script> 
+                            var start
+                            var i
+                            var i_2
+                            start=0
+                            var start_2
+                            start_2=0
+                            $("#Debut_Arret_maint").load("load_nombre #Debut_Arret_maint"); 
+                            var Debut_Arret_maint=document.querySelector("#Debut_Arret_maint").value;
+                            //console.log("Debut_Arret_maint"+Debut_Arret_maint)
+                            document.getElementById("arret_production").innerHTML="00:00:00" 
+                            document.getElementById("arret_convoyeur").innerHTML="00:00:00" 
+                            
+                            setInterval("load_champ()", 1000);
+                            function load_champ(){
+                            $("#nombre").load("load_nombre #nombre");
+                            $("#RO").load("load_nombre #RO");
+                            $("#CHR").load("load_nombre #CHR");
+                            $("#RO_journa").load("load_nombre #RO_journa");
+                            $("#Gamme_en_cours_2").load("load_nombre #Gamme_en_cours_2");
+                            $("#Somme_changement_gamme").load("load_nombre #Somme_changement_gamme");
+                            $("#Somme_arret_production").load("load_nombre #Somme_arret_production");  
+                            $("#etat_prod").load("load_nombre #etat_prod");
+                            var etat_prod=document.getElementById("etat_prod").textContent
+                            $("#etat_conv").load("load_nombre #etat_conv");
+                            var etat_conv=document.getElementById("etat_conv").textContent
+                            console.log("etat_prod"+etat_prod)
+                            //console.log("etat_conv"+etat_conv)
+                            //console.log("staaaaart1111", start)
+                            if (etat_prod=='debut'){
+                                if (start==0){
+                                        i=localStorage.getItem("i");
+                                        if (i==0){
+                                            window.location.reload();
+                                            localStorage.setItem("i", 1);
+                                        }
+                                        $("#Debut_Arret_maint").load("load_nombre #Debut_Arret_maint");
+                                }
+                                var Debut_Arret_maint=document.querySelector("#Debut_Arret_maint").value;
+                                var debut_arret=Debut_Arret_maint.slice(1, Debut_Arret_maint.length-1);
+                                var array=debut_arret.split(",")
+                                //console.log("array"+array)
+                                //console.log("iiiiiiiii", i)
+                                //console.log("iiiiiiiii222", i_2)
+                               //console.log("Debut_Arret_maint"+Debut_Arret_maint);
+                               var longueur=array.length
+                               //console.log("longueur"+longueur);
+                               if (array.length==3 && start==0){
+                                    heure=parseInt(array[0]);
+                                    minute=parseInt(array[1]);
+                                    seconde=parseInt(array[2]);
+                                    //console.log("33333333333");
+                                    //console.log("heure"+heure)
+                                    //console.log("minute"+minute)
+                                    //console.log("seconde"+seconde)
+                                    if (heure<10){
+                                        heure='0'+heure;
+                                        }
+                                    if (seconde<10){
+                                        seconde='0'+seconde;
+                                        }
+                                    if (minute<10){
+                                         minute='0'+minute;
+                                        }
+                                    
+                                    start=1
+                                    //console.log("startinclude", start)
+                                   }
+                                    else if (array.length==4 && start==0) {
+                                        days=parseInt(array[0]);
+                                        heure=parseInt(array[1]) + 24*parseInt(array[0]);
+                                        minute=parseInt(array[2]);
+                                        seconde=parseInt(array[3]);
+                                        start=1
+                                        
+                                    if (heure<10){
+                                        heure='0'+heure;
+                                        }
+                                    if (seconde<10){
+                                        seconde='0'+seconde;
+                                        }
+                                    if (minute<10){
+                                         minute='0'+minute;
+                                        }
+                                        //console.log("start")
+                                    }
+                                    seconde++;
+                                    if (seconde<10){
+                                        seconde='0'+seconde;
+                                        }
+                                    if (seconde==60){
+                                            seconde='0'+0;
+                                            minute++;
+                                            if (minute<10){
+                                         minute='0'+minute;
+                                        }
+                                            
+                                        }
+                                    if (minute==60){
+                                            minute='0'+0;
+                                            heure++;    
+                                            if (heure<10){
+                                        heure='0'+heure;
+                                        }                                                
+                                            
+                                        }
+                                    //console.log("heure" +heure +',' + minute+','+seconde);
+                                    arret_maint_value=heure +':' + minute+':'+seconde
+                                    //console.log("arret_maint_value"+arret_maint_value)
+                                    document.getElementById("arret_production").innerHTML=arret_maint_value
+                                }
+                                if (etat_prod=='fin'){
+                                    start=0;
+                                    i=0;
+                                    document.getElementById("arret_production").innerHTML="00:00:00"
+                                    localStorage.setItem("i", 0);
+                                }
+                                //console.log("staaaaart2222", start)
+                                //console.log("start_2", start_2)
+                                if (etat_conv=='debut'){
+                                    
+                                    if (start_2==0){
+                                        i_2=localStorage.getItem("i_2");
+                                        if (i_2==0){
+                                            window.location.reload();
+                                            localStorage.setItem("i_2", 1);
+                                        }
+                                        $("#Debut_Arret_conv").load("load_nombre #Debut_Arret_conv");
+                                }
+                                    var Debut_Arret_conv=document.getElementById("Debut_Arret_conv").textContent;
+                                    var debut_arret_2=Debut_Arret_conv.slice(1, Debut_Arret_conv.length-1);
+                                    var array_2=debut_arret_2.split(",") 
+                                   //console.log("array_2"+array_2)
+                                   //console.log("Debut_Arret_conv"+Debut_Arret_conv);
+                                   var longueur_2=array_2.length
+                                   //console.log("longueur"+longueur_2);
+                                   if (array_2.length==3 && start_2==0){
+                                    heure_2=parseInt(array_2[0]);
+                                    minute_2=parseInt(array_2[1]);
+                                    seconde_2=parseInt(array_2[2]);
+                                    //console.log("3322233");
+                                    //console.log("heure"+heure_2)
+                                    //console.log("minute"+minute_2)
+                                    //console.log("seconde"+seconde_2)
+                                    if (heure_2<10){
+                                        heure_2='0'+heure_2;
+                                        }
+                                    if (seconde_2<10){
+                                        seconde_2='0'+seconde_2;
+                                        }
+                                    if (minute_2<10){
+                                         minute_2='0'+minute_2;
+                                        }
+                                    start_2=1
+                                   }
+                                    else if (array_2.length==4 && start_2==0) {
+                                        days_2=parseInt(array_2[0]);
+                                        heure_2=parseInt(array_2[1]) + 24*parseInt(array_2[0]);
+                                        minute_2=parseInt(array_2[2]);
+                                        seconde_2=parseInt(array_2[3]);
+                                        start_2=1
+                                        if (heure_2<10){
+                                        heure_2='0'+heure_2;
+                                        }
+                                    if (seconde_2<10){
+                                        seconde_2='0'+seconde_2;
+                                        }
+                                    if (minute_2<10){
+                                         minute_2='0'+minute_2;
+                                        }
+                                        //console.log("start_2")
+                                    }
+                                    seconde_2++;
+                                    if (seconde_2<10){
+                                        seconde_2='0'+seconde_2;
+                                        }
+                                    if (seconde_2==60){
+                                            seconde_2='0'+0;
+                                            minute_2++;
+                                            if (minute_2<10){
+                                         minute_2='0'+minute_2;
+                                        }
+                                            
+                                        }
+                                    if (minute_2==60){
+                                            minute_2='0'+0;
+                                            heure_2++;   
+                                            if (heure_2<10){
+                                        heure_2='0'+heure_2;
+                                        }                                                 
+                                            
+                                        }
+                                    //console.log("heure" +heure_2 +',' + minute_2 +','+seconde_2);
+                                    arret_conv_value=heure_2 +':' + minute_2+':'+seconde_2
+                                    //console.log("arret_conv_value"+arret_conv_value)
+                                    document.getElementById("arret_convoyeur").innerHTML=arret_conv_value
+                                }
+                                if (etat_conv=='fin'){
+                                    start_2=0;
+                                    localStorage.setItem("i_2", 0);
+                                    document.getElementById("arret_convoyeur").innerHTML="00:00:00"
+                                }
+                                if (etat_prod=='fin' && etat_conv=='fin'){
+                                // La ligne en marche //#6c757d
+                                document.getElementById('marche').style.color='rgb(105 191 13)'; 
+                                document.getElementById('marche').style.fontWeight ='700'; 
+
+                                document.getElementById('Arrêt_de_maintenance').style.color='#6c757d'; 
+                                document.getElementById('Arrêt_de_maintenance').style.fontWeight ='400'; 
+                                document.getElementById('Changement_de_gamme').style.color='#6c757d'; 
+                                document.getElementById('Changement_de_gamme').style.fontWeight ='400';
+                                }
+                                //changement de gamme
+                                if (etat_prod=='fin' && etat_conv=='debut'){
+                                document.getElementById('Changement_de_gamme').style.color='#f5c630'; 
+                                document.getElementById('Changement_de_gamme').style.fontWeight ='600';
+                                
+                                document.getElementById('Arrêt_de_maintenance').style.color='#6c757d'; 
+                                document.getElementById('Arrêt_de_maintenance').style.fontWeight ='400'; 
+                                document.getElementById('marche').style.color='#6c757d'; 
+                                document.getElementById('marche').style.fontWeight ='400';
+                                }
+                                //Arret maintenace
+                                if (etat_prod=='debut' && etat_conv=='fin'){
+                                document.getElementById('Arrêt_de_maintenance').style.color='rgba(255, 89, 105)'; 
+                                document.getElementById('Arrêt_de_maintenance').style.fontWeight ='600'; 
+
+                                document.getElementById('Changement_de_gamme').style.color='#6c757d'; 
+                                document.getElementById('Changement_de_gamme').style.fontWeight ='400'; 
+                                document.getElementById('marche').style.color='#6c757d'; 
+                                document.getElementById('marche').style.fontWeight ='400';
+                                }
+                                //Arret maintenace + changement de gamme
+                                if (etat_prod=='debut' && etat_conv=='debut'){
+                                document.getElementById('Arrêt_de_maintenance').style.color='rgba(255, 89, 105)'; 
+                                document.getElementById('Arrêt_de_maintenance').style.fontWeight ='600'; 
+                                document.getElementById('Changement_de_gamme').style.color='#f5c630'; 
+                                document.getElementById('Changement_de_gamme').style.fontWeight ='600'; 
+
+                                document.getElementById('marche').style.color='#6c757d'; 
+                                document.getElementById('marche').style.fontWeight ='400';
+                                }
+                            }  
+                          
+                            </script>
+                           
+                </main>
+            </div>
         </div>
-        <div id='students'>
-          <ul/>
-        </div>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href='https://github.com/inlinestyle'>inlinestyle</a></p>
-        <p>
-          <small>Hosted on GitHub Pages &mdash; Theme by <a href='https://github.com/orderedlist'>orderedlist</a></small>
-        </p>
-      </footer>
-    </div>
-    <script
-      src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'
-      crossorigin='anonymous'></script>
-    <script
-      src='https://cdnjs.cloudflare.com/ajax/libs/tinysort/2.3.6/tinysort.min.js'
-      crossorigin='anonymous'></script>
-    <script
-      src='https://cdnjs.cloudflare.com/ajax/libs/tinysort/2.3.6/jquery.tinysort.min.js'
-      crossorigin='anonymous'></script>
-    <script src='javascripts/scale.fix.js'></script>
-    <script src='javascripts/wheel.js'></script>    
-  </body>
+        <!--
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="{%static 'js/scripts.js'%}"></script>
+      <!--
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="{%static 'assets/demo/chart-area-demo.js'%}"></script>
+        <script src="{%static 'assets/demo/chart-bar-demo.js'%}"></script>
+        -->
+        
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="{%static 'assets/demo/datatables-demo.js'%}"></script>
+        <!--
+        <script type="application/javascript" src="{%static 'js/jquery-1.9.1.js'%}"></script>  
+
+        <script type="application/javascript" src="{%static 'js/jquery-ui-1.10.3.custom.js'%}"></script> 
+        
+        <script type="application/javascript" src="{%static 'js/jquery.ui.datepicker-fr.js'%}"></script>
+        
+        <script type="text/javascript" src="{%static 'js/moment.js'%}"></script>  -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    </body>
 </html>
